@@ -1,0 +1,12 @@
+name: PR Title Check
+description: Validates PR titles against allowed commit types
+
+inputs:
+  allowed-types:
+    description: Comma-separated list of allowed Conventional Commit types
+    required: true
+    default: "fix,feat,test,docs"
+
+runs:
+  using: node20
+  main: dist/index.js
