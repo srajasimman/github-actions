@@ -1,0 +1,22 @@
+name: Changelog Check
+description: Fails PRs that change code without updating the changelog
+
+inputs:
+  changelog-path:
+    description: Path to changelog file
+    required: true
+    default: "CHANGELOG.md"
+
+  code-extensions:
+    description: Comma-separated list of code file extensions to watch
+    required: true
+    default: ".ts,.js,.py"
+
+  fail-on-missing:
+    description: Whether to fail if changelog is missing (true/false)
+    required: false
+    default: "true"
+
+runs:
+  using: node20
+  main: dist/index.js

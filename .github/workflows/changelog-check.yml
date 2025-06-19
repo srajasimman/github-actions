@@ -1,0 +1,22 @@
+name: Changelog Presence Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+
+jobs:
+  changelog-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Changelog Check
+        uses: srajasimman/github-actions/changelog-check@main
+        with:
+          changelog-path: "CHANGELOG.md"
+          code-extensions: ".ts,.js,.py,.go,.java"
+          fail-on-missing: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
