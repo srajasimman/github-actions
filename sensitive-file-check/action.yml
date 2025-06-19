@@ -1,0 +1,12 @@
+name: Sensitive File Check
+description: Fails PRs containing sensitive files
+
+inputs:
+  sensitive-patterns:
+    description: Comma-separated list of glob-like file patterns to block
+    required: true
+    default: ".env,secrets.*,id_rsa,*.pem,*.key"
+
+runs:
+  using: node20
+  main: dist/index.js

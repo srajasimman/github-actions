@@ -1,0 +1,20 @@
+name: Detect Sensitive Files in PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+
+jobs:
+  check-sensitive-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Sensitive File Check
+        uses: srajasimman/github-actions/sensitive-file-check
+        with:
+          sensitive-patterns: ".env,secrets.*,id_rsa,*.pem,*.key"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
