@@ -1,0 +1,9 @@
+name: PR Label Check
+description: Ensures PR has at least one label or applies default.
+inputs:
+  repo-token:
+    description: GitHub token
+    required: true
+runs:
+  using: node20
+  main: dist/index.js
