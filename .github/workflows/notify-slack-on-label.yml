@@ -1,0 +1,16 @@
+name: Slack Alert on Critical PR Label
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  notify-slack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify Slack if Critical Label
+        uses: srajasimman/github-actions/slack-label-alert@main
+        with:
+          watch-labels: "critical,hotfix"
+          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}

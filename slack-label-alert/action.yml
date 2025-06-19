@@ -1,0 +1,15 @@
+name: Slack Notification on Critical Label
+description: Notifies Slack if a PR is labeled with critical/hotfix
+
+inputs:
+  watch-labels:
+    description: Comma-separated list of labels to watch
+    required: true
+
+  slack-webhook-url:
+    description: Slack Incoming Webhook URL
+    required: true
+
+runs:
+  using: node20
+  main: dist/index.js

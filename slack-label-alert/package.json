@@ -1,0 +1,26 @@
+{
+  "name": "slack-label-alert",
+  "version": "1.0.0",
+  "description": "Custom JavaScript GitHub Action that Notifies Slack if a PR is labeled with critical/hotfix.",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build slack-label-alert.js -o dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "pull-request",
+    "label",
+    "slack-notification"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.36.1"
+  }
+}
