@@ -3,6 +3,10 @@ name: Detect Sensitive Files in PR
 on:
   pull_request:
     types: [opened, synchronize, edited]
+    branches:
+      - main
+    paths:
+      - '**/*'
 
 jobs:
   check-sensitive-files:
