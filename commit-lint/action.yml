@@ -1,0 +1,16 @@
+name: Commit Message Lint
+description: Lints commit messages in a PR against Conventional Commits
+
+inputs:
+  allowed-types:
+    description: Comma-separated list of allowed commit types
+    required: true
+    default: "fix,feat,docs,test,chore,refactor,style"
+  fail-on-error:
+    description: Whether to fail the workflow on invalid commits (true/false)
+    required: false
+    default: "true"
+
+runs:
+  using: node20
+  main: dist/index.js

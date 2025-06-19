@@ -1,0 +1,21 @@
+name: Commit Message Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+
+jobs:
+  lint-commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Lint Commit Messages
+        uses: srajasimman/github-actions/commit-lint@main
+        with:
+          allowed-types: "fix,feat,docs,test,chore,refactor,style"
+          fail-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
