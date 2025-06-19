@@ -1,0 +1,17 @@
+name: PR Label Enforcer
+
+on:
+  pull_request:
+    types: [opened, unlabeled]
+
+jobs:
+  check-pr-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run PR Label Check
+        uses: srajasimman/github-actions/pr-label-check@main
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
